@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "882974755304",
+    "project_id": "physiomate-e045c",
+    "storage_bucket": "physiomate-e045c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882974755304:android:9fd2b04f8ed573f5af3c5d",
+        "android_client_info": {
+          "package_name": "com.physiomate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882974755304-cbra5splcrba1d7n2gcafemtrgr4umkq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBI-nKU-M_Tx3_hSTY-QF70gc8qlunV77U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882974755304-cbra5splcrba1d7n2gcafemtrgr4umkq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
