@@ -1,39 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Text,TextInput,View ,TouchableOpacity, Keyboard} from 'react-native'
 import {useNavigation} from '@react-navigation/native'
-import Auth from '@react-native-firebase/auth'
-import firestore from '@react-native-firebase/firestore'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
 import { stackParamsList } from '../../../App'
+import {useDispatch,useSelector} from 'react-redux'
+import { signUp } from '../../Redux/actions/AuthSaga'
+import { RootState } from '../../Redux/reducers/RootReducer'
 const Registration = () =>
 {
     const [userName,setuserName] = useState<string>("")
     const [email,setEmail] = useState<string>("")
     const [password,setPassword] = useState<string>("")
     const [repassword,setRepassword] = useState<string>("")
-
+    const dispatch = useDispatch()
+    const userEmail = useSelector<RootState>(state=>state.Auth.email)
     const navigation = useNavigation<NativeStackNavigationProp<stackParamsList,"Registration">>()
     const RegisterUser = async() =>
     {
-      try
-      {
-        await Auth().createUserWithEmailAndPassword(email,password)
-
-        const ref = await firestore()
-        .collection("doctors")
-        .doc(Auth().currentUser?.uid)
-        .set({
-            userName: userName,
-            email: email,
-        })
-        navigation.navigate("Login")
-      }
-      catch(err)
-      {
-        console.log(err)
-      }
+       dispatch(signUp({email,password,userName}))
     }
 
+    useEffect(()=>{
+      if(userEmail != "")
+      {
+        navigation.navigate("HomeScreen")
+      }
+      
+    },[userEmail])
     return(
         <View style={{
             flex:1,

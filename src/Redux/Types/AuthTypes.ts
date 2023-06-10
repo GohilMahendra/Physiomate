@@ -1,8 +1,17 @@
 export interface LoginSuccessPayload{
     email:string,
-    userName:string
 }
 
 export interface loginFailedPayload{
     error: string
+}
+
+export interface SignUpFailedPayload
+{
+    error: string
+}
+
+export interface SignUpSuccessPayload{
+    email:string,
+    userName:string
 }
